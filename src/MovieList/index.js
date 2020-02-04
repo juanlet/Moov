@@ -1,8 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import MovieItem from "../MovieItem";
 function index(props) {
-  return <div>MovieList</div>;
+  return (
+    <div>
+      {props.movies.map(movie => (
+        <MovieItem key={movie.id} movie={movie} />
+      ))}
+    </div>
+  );
 }
 
 index.propTypes = {};
