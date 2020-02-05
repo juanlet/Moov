@@ -46,25 +46,5 @@ img {
     max-width: 100%;
     height: auto;
 }
-//circular badges for movie data or any other uses
-.circular-badge{
-    width: 80px;
-    height: 80px;
-    background-color: white;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 4rem;
-    border: none;
 
-    &--gold {
-        background-color: #F7B32B;
-        color: white;
-    }
-    &--light {
-        background-color: #F72C25;
-        color: white;
-    }
-}
+
