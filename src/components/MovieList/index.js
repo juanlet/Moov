@@ -6,9 +6,9 @@ function index(props) {
   return (
     <div className="container">
       <div className="movie-list">
-       {props.movies?props.movies.map(movie => (
+       {props.movies && props.movies.map(movie => (
         <MovieItem key={movie.id} movie={movie} />
-      )):'No Movies to show in this range of score.'} 
+      ))} 
       </div>
     </div>
   );

@@ -15,7 +15,6 @@ const MovieDetails = props => {
 `);
       results = await results.json();
       setMovieDetails(results);
-      console.log(results);
       } catch (err) {
           console.log(err);
       }
@@ -37,23 +36,25 @@ const MovieDetails = props => {
         movieDetails && 
         <div className="movie-details">
             <div className="movie-details__heading">
-                <Link to="/moov" className="heading__back-btn"><span>{"<"} Back</span></Link>
+                <Link to="/" className="heading__back-btn"><span>{"<"} Back</span></Link>
                 <span className="movie-details__title"> {title}</span>
             </div>
             <div className="movie-details__content">
-                <div className="movie-details__top-content-wrapper">
-                    <div className="badge movie-details__average circular-badge circular-badge--gold">{vote_average}</div>
-                    <div className="badge  movie-details__vote-count circular-badge circular-badge--light">{vote_count}</div>
-                    <div className="movie-details__image-holder"><img src={`https://image.tmdb.org/t/p/w500/${backdrop_path} `} className="movie-details__image" alt="Logo" /></div>
-                </div>
-                <div className="movie-details__subsection-wrapper">
-                    <div className="movie-details__additional-information">
+               
+                <div className="badge movie-details__average circular-badge circular-badge--gold">{vote_average}</div>
+                  <div className="badge  movie-details__vote-count circular-badge circular-badge--light">{vote_count}</div>
+                <div className="movie-details__col">
+                  <div className="movie-details__image-holder">
+                     <img src={`https://image.tmdb.org/t/p/w500/${backdrop_path} `} className="movie-details__image" alt="Logo" /></div>
+                  <div className="movie-details__additional-information">
                         <div>Original Title: {original_title}</div>
                         <div>Genres: {genres && genres.join(',')} </div>
                         <div>Language: {original_language}</div>
                         <div>Budget: {budget?`${budget}`:'N/A'}</div>
                         <div>Revenue: {revenue?`${revenue}`:'N/A'}</div>
-                    </div>
+                   </div>
+                </div>
+                <div className="movie-details__col">
                     <div className="movie-details__overview">{overview}</div>
                 </div>
             </div>

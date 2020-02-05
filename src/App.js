@@ -14,12 +14,12 @@ function App() {
     <ErrorBoundary>
 
     <div className="App">
-      <Router>
+      <Router basename="/moov">
       <Switch>
-              <Route exact path='/moov' component={Home} />
+              <Route exact path='/' component={Home} />
               <Route  path='/details' component={MovieDetails} />
       </Switch>
-      <Footer />
+     {/*  <Footer /> */}
       </Router>
     </div>
     </ErrorBoundary>
