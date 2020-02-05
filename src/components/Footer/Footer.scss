@@ -7,4 +7,49 @@
   -webkit-box-shadow: -5px -11px 9px -11px rgba(128,128,128,0.72);
 -moz-box-shadow: -5px -11px 9px -11px rgba(128,128,128,0.72);
 box-shadow: -5px -11px 9px -11px rgba(128,128,128,0.72);
+color: white;
+display: flex;
+flex-direction: column;
+position: relative;
+
+.newsletter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    
+
+    &__subtitle{
+    margin-right: 3%;
+
+    }
+   
+   &__subscribe-btn{
+       margin-left: 1.1%;
+       padding: 9px;
+       padding-top: 7px;
+       padding-bottom: 7px;
+       background-color: #747B82;
+       opacity: 0.8;
+       cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+   }
+   
+
 }
+
+
+.copyright {
+    font-size: 0.7rem;
+    opacity: 0.9;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+}
+
