@@ -14,6 +14,8 @@ function index(props) {
   );
 }
 
-index.propTypes = {};
+index.propTypes = {
+  movies: PropTypes.array
+};
 
 export default index;
