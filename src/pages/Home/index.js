@@ -40,11 +40,11 @@ const Home = props => {
   }
 
   const filterMoviesByRating = () => {
-    const lowerBound = ratingFilter * 2;
-    const upperBound = ratingFilter * 2 + 2;  
+    const lowerBound = (ratingFilter - 1) * 2;
+    const upperBound = (ratingFilter - 1) * 2 + 2;  
     const filteredMovies =   movieList.filter(movie=>{
        const avgVote = parseFloat(movie.vote_average);
-      if( avgVote >= lowerBound && avgVote <upperBound ){
+      if( avgVote >= lowerBound && avgVote < upperBound ){
           return movie;
        }
         
