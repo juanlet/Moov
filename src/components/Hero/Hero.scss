@@ -16,11 +16,19 @@
 
 &__title {
    font-size: 3rem;
-   font-weight: bold;
+   font-weight: semi-bold;
 }
 
 &__subtitle {
    font-size: 1.2rem;
+}
+
+&__brand {
+  font-family: 'Luckiest Guy', cursive;
+  position: absolute;
+  top:3%;
+  left: 3%;
+  font-size: 1.8rem;
 }
 
 }
@@ -32,3 +40,23 @@
 }
 
 
+
+@media (min-width: 300px) and (max-width: 768px) {
+  .hero{
+  
+  &__title {
+   font-size: 1.7rem;
+   font-weight: semi-bold;
+  }
+
+  &__subtitle {
+   font-size: 1rem;
+}
+
+  &__brand {
+    font-size: 4rem;
+    left: 50%;
+    transform: translate(-50%); 
+  } 
+  }
+}

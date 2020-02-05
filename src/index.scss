@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+
 @import "colors";
 @import "ui";
 
 html {
+
    box-sizing: border-box;
 }
 
 
 body {
+
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Poppins", sans-serif;
+  overscroll-behavior-y: none;
+
 }
 
 code {

@@ -5,6 +5,7 @@ import './Hero.scss';
 function index(props) {
   return (
     <div className="hero">
+      <div className="hero__brand">Moov</div>
       <div className="hero__title"> Find your new favorites</div>
       <p className="hero__subtitle">Broaden your taste</p>
       <div className="input-group search-container">
