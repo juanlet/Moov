@@ -7,8 +7,7 @@ import RatingFilter from 'components/RatingFilter';
 const Home = props => {
 
      const [movieList, setMovieList] = useState([]);
-     const [filteredMovies, setFilteredMovies] = useState([]);
-     const [ratingFilter, setRatingFilter] = useState(0);
+     const [ratingFilter, setRatingFilter] = useState(false);
 
   const fetchRecommendedMovies = async () => {
     try {
@@ -22,17 +21,18 @@ const Home = props => {
     }
   };
 
-  const filterMovies = (filteringValue) => {
-    const lowerBound = filteringValue * 2 - 2;
-    const upperBound = filteringValue * 2;  
+  const filterMoviesByRating = () => {
+    const lowerBound = ratingFilter * 2 - 2;
+    const upperBound = ratingFilter * 2;  
     const filteredMovies =   movieList.filter(movie=>{
        const avgVote = parseInt(movie.vote_average);
-      if( avgVote >= lowerBound && avgVote <=upperBound ){
+       console.log(avgVote, lowerBound,upperBound);
+      if( avgVote > lowerBound && avgVote <=upperBound ){
           return movie;
        }
         
-        });
-    return filteredMovies;
+     });
+    return filteredMovies.length? filteredMovies: null;
   }
 
   const onStarClick = (nextValue, prevValue, name)=>{
@@ -41,8 +41,7 @@ const Home = props => {
          //clear filter
          setRatingFilter(0);
      }else{
-         setRatingFilter(nextValue);
-        
+         setRatingFilter(nextValue); 
      }
   }
 
@@ -51,17 +50,16 @@ const Home = props => {
     fetchRecommendedMovies();
   }, []);
 
-  useEffect(()=>{
-      console.log("rating changed", movieList);
-         setFilteredMovies(filterMovies(ratingFilter));
-  },[ratingFilter])
+  /* useEffect(()=>{
+         se(ratingFilter?true:false);
+  },[ratingFilter]) */
   
     return (
         <div>
             <Hero />
             <RatingFilter onStarClick={onStarClick}
             rating = {ratingFilter}/>
-            {filteredMovies?<MovieList movies={movieList} />:(movieList ?(
+            {ratingFilter?<MovieList movies={filterMoviesByRating()} />:(movieList ?(
                 <MovieList movies={movieList} />
             ) : (
                 "There was an error fetching the movies"
