@@ -8,6 +8,7 @@ const Home = props => {
 
      const [movieList, setMovieList] = useState([]);
      const [ratingFilter, setRatingFilter] = useState(false);
+     const [searchTerm, setSearchTerm] = useState('');
 
   const fetchRecommendedMovies = async () => {
     try {
@@ -21,12 +22,22 @@ const Home = props => {
     }
   };
 
+  const searchMovies = async (term) => {
+    try {
+      let movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${term}`)
+      movies = await movies.json();
+      setMovieList(movies.results);
+      console.log(movies);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const filterMoviesByRating = () => {
     const lowerBound = ratingFilter * 2 - 2;
     const upperBound = ratingFilter * 2;  
     const filteredMovies =   movieList.filter(movie=>{
        const avgVote = parseInt(movie.vote_average);
-       console.log(avgVote, lowerBound,upperBound);
       if( avgVote > lowerBound && avgVote <=upperBound ){
           return movie;
        }
@@ -36,7 +47,6 @@ const Home = props => {
   }
 
   const onStarClick = (nextValue, prevValue, name)=>{
-     console.log("click",nextValue, prevValue, name);
         if(prevValue === nextValue){
          //clear filter
          setRatingFilter(0);
@@ -50,13 +60,22 @@ const Home = props => {
     fetchRecommendedMovies();
   }, []);
 
+  useEffect(() => {
+    if(searchTerm === ''){
+      fetchRecommendedMovies();
+    }else{
+      console.log('looking for');
+    }
+  },[searchTerm])
+
+
   /* useEffect(()=>{
          se(ratingFilter?true:false);
   },[ratingFilter]) */
   
     return (
         <div>
-            <Hero />
+            <Hero setSearchTerm={setSearchTerm}/>
             <RatingFilter onStarClick={onStarClick}
             rating = {ratingFilter}/>
             {ratingFilter?<MovieList movies={filterMoviesByRating()} />:(movieList ?(

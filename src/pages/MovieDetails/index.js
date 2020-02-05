@@ -41,8 +41,12 @@ const MovieDetails = props => {
                 <span className="movie-details__title"> {title}</span>
             </div>
             <div className="movie-details__content">
-                <div className="movie-details__image-holder"><img src={`https://image.tmdb.org/t/p/w500/${backdrop_path} `} className="movie-details__image" alt="Logo" /></div>
-                <div className="movie-details__subsection_wrapper">
+                <div className="movie-details__top-content-wrapper">
+                    <div className="badge movie-details__average circular-badge circular-badge--gold">{vote_average}</div>
+                    <div className="badge  movie-details__vote-count circular-badge circular-badge--light">{vote_count}</div>
+                    <div className="movie-details__image-holder"><img src={`https://image.tmdb.org/t/p/w500/${backdrop_path} `} className="movie-details__image" alt="Logo" /></div>
+                </div>
+                <div className="movie-details__subsection-wrapper">
                     <div className="movie-details__additional-information">
                         <div>Original Title: {original_title}</div>
                         <div>Genres: {genres && genres.join(',')} </div>
@@ -52,8 +56,6 @@ const MovieDetails = props => {
                     </div>
                     <div className="movie-details__overview">{overview}</div>
                 </div>
-                <div className="badge movie-details__average">Average: {vote_average}</div>
-                <div className="badge  movie-details__vote-count">Votes: {vote_count}</div>
             </div>
           </div>
     )
