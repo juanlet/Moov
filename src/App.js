@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
-import Navbar from "components/Navbar";
 import Hero from "components/Hero";
 import MovieList from "components/MovieList";
 import Footer from "components/Footer";
+import Normalize from 'react-normalize';
 
 function App() {
   const [movieList, setMovieList] = useState([]);
@@ -23,12 +23,13 @@ function App() {
   };
 
   useEffect(() => {
-    fetchMovies();
+   // fetchMovies();
   }, []);
 
   return (
     <div className="App">
-      <Navbar />
+      <Normalize />
+
       <Hero />
       {movieList ? (
         <MovieList movies={movieList} />

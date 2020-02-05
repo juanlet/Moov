@@ -1,19 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Button, Jumbotron} from 'react-bootstrap'
+import './Hero.scss';
 
 function index(props) {
-  return <Jumbotron>
-  <h1>Hello, world!</h1>
-  <p>
-    This is a simple hero unit, a simple jumbotron-style component for calling
-    extra attention to featured content or information.
-  </p>
-  <p>
-    <Button variant="primary">Learn more</Button>
-  </p>
-</Jumbotron>;
+  return (
+    <div className="hero">
+      <div className="hero__title"> Find your new favorites</div>
+      <p className="hero__subtitle">Broaden your taste</p>
+      <div className="input-group search-container">
+         <input type="text" class="form-control form-control--rounded" placeholder="Search movie..." aria-label="Search" aria-describedby="movie-search"/>
+      </div>
 
+ 
+    </div>
+  );
 }
 
 index.propTypes = {};

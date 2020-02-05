@@ -1,0 +1,18 @@
+
+.input-group {
+  width: 100%;
+}
+
+.form-control{
+    max-width: 250px;
+
+    &::placeholder {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    &--rounded{
+     border-radius: 30px;
+
+    }
+}

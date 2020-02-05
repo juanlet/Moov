@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import MovieItem from "components/MovieItem";
 function index(props) {
   return (
-    <div>
-      {props.movies.map(movie => (
+    <div className="container movie-list-container">
+      {/* {props.movies.map(movie => (
         <MovieItem key={movie.id} movie={movie} />
-      ))}
+      ))} */}
+      list
     </div>
   );
 }
