@@ -11,8 +11,7 @@ function index(props) {
        className="movie-card__image"
         alt="Logo"
       />
-      <div>{props.movie.title}</div>
-      {/* <div>{props.movie.overview}</div> */}
+  
     </div>
   );
 }

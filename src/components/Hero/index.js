@@ -9,7 +9,7 @@ function index(props) {
       <div className="hero__title"> Find your new favorites</div>
       <p className="hero__subtitle">Broaden your taste</p>
       <div className="input-group search-container">
-         <input type="text" class="form-control form-control--rounded" placeholder="Search movie..." aria-label="Search" aria-describedby="movie-search"/>
+         <input type="text" className="form-control form-control--rounded" placeholder="Search movie..." aria-label="Search" aria-describedby="movie-search"/>
       </div>
 
  
