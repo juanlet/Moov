@@ -7,7 +7,7 @@ grid-gap: 0.2rem;
 margin-bottom: 3%;
 }
 
-@media (min-width: 371px) and (max-width: 600px) {
+@media (min-width: 300px) and (max-width: 600px) {
   .movie-list{
     
     grid-template-columns: repeat(2,1fr);
