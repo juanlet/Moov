@@ -69,28 +69,20 @@ const Home = props => {
 
   useEffect(
     () => {
-      // Make sure we have a value (user has entered something in input)
+       setRatingFilter(0);
+
       if (debouncedSearchTerm) {
-        // Set isSearching state
         setIsSearching(true);
-        // Fire off our API call
         searchMovies(debouncedSearchTerm);
       } else {
        fetchRecommendedMovies();
       }
     },
-    // This is the useEffect input array
-    // Our useEffect function will only execute if this value changes ...
-    // ... and thanks to our hook it will only change if the original ...
-    // value (searchTerm) hasn't changed for more than 500ms.
     [debouncedSearchTerm]
   );
 
 
-  /* useEffect(()=>{
-         se(ratingFilter?true:false);
-  },[ratingFilter]) */
-  
+
     return (
         <div>
             <Hero setSearchTerm={setSearchTerm}/>
