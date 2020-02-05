@@ -14,12 +14,12 @@ const Home = props => {
      const [isSearching, setIsSearching] = useState(false);
      const [errorMessage,setErrorMessage] = useState('');
      const debouncedSearchTerm = useDebounce(searchTerm, 500);
-
+     const apiBaseUrl = "https://api.themoviedb.org/3";
 
   const fetchRecommendedMovies = async () => {
     try {
       let movies = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&sort_by=popularity.desc`
+        `${apiBaseUrl}/discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&sort_by=popularity.desc`
       );
       movies = await movies.json();
       setMovieList(movies.results);
@@ -30,7 +30,7 @@ const Home = props => {
 
   const searchMovies = async (term) => {
     try {
-      let movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${term}`)
+      let movies = await fetch(`${apiBaseUrl}/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${term}&language=en-US&sort_by=popularity.desc`);
       movies = await movies.json();
       setIsSearching(false);
       setMovieList(movies.results);
