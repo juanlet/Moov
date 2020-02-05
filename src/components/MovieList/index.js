@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MovieItem from "../MovieItem";
+import MovieItem from "components/MovieItem";
 function index(props) {
   return (
     <div>

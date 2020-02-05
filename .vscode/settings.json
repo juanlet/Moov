@@ -1,0 +1,5 @@
+{
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "codemetrics.basics.CodeLensEnabled": false
+}
+

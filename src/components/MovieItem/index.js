@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function index(props) {
   return (
-    <div className>
+    <div className="card">
       <img
         src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}
 `}
