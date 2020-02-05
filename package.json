@@ -1,7 +1,7 @@
 {
   "name": "moov",
   "version": "0.1.0",
-  "homepage": "https://juanlet.github.io/moov/",
+  "homepage": "https://juanlet.github.io/moov",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
