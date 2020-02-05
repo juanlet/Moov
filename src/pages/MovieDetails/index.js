@@ -37,7 +37,7 @@ const MovieDetails = props => {
         movieDetails && 
         <div className="movie-details">
             <div className="movie-details__heading">
-                <Link to="/" className="heading__back-btn"><span>{"<"} Back</span></Link>
+                <Link to="/moov" className="heading__back-btn"><span>{"<"} Back</span></Link>
                 <span className="movie-details__title"> {title}</span>
             </div>
             <div className="movie-details__content">
