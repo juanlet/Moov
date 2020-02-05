@@ -14,7 +14,7 @@ function App() {
     <ErrorBoundary>
 
     <div className="App">
-      <Router basename="/moov">
+      <Router>
       <Switch>
               <Route exact path='/' component={Home} />
               <Route  path='/details' component={MovieDetails} />

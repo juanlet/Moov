@@ -4,22 +4,24 @@ import PropTypes from "prop-types";
 import './MovieItem.scss';
 
 function index(props) {
+  const {vote_average,poster_path,title,overview,id} = props.movie;
   return (
     <div className="card movie-card">
+      <div class="movie-card__score">{vote_average}</div>
       <img
-        src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}
+        src={`https://image.tmdb.org/t/p/w500/${poster_path}
 `}
        className="movie-card__image"
         alt="Logo"
       />
       <div className="overlay">
          <div className="overlay__container">
-         <div className="overlay__title">{props.movie.title}</div>
-         <div className="overlay__text">{`${props.movie.overview.substring(0,130)}...`}</div>
+         <div className="overlay__title">{title}</div>
+         <div className="overlay__text">{`${overview.substring(0,150)}...`}</div>
          <Link to={{
           pathname: '/details',
           state: {
-            movieId: props.movie.id
+            movieId: id
           }
 }}><div className="btn btn-primary overlay__see-more-btn">See more</div></Link>
          </div>

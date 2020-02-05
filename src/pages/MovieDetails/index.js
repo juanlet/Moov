@@ -40,10 +40,7 @@ const MovieDetails = props => {
                 <span className="movie-details__title"> {title}</span>
             </div>
             <div className="movie-details__content">
-               
-                <div className="badge movie-details__average circular-badge circular-badge--gold">{vote_average}</div>
-                  <div className="badge  movie-details__vote-count circular-badge circular-badge--light">{vote_count}</div>
-                <div className="movie-details__col">
+                <div className="movie-details__col left-col">
                   <div className="movie-details__image-holder">
                      <img src={`https://image.tmdb.org/t/p/w500/${backdrop_path} `} className="movie-details__image" alt="Logo" /></div>
                   <div className="movie-details__additional-information">
@@ -54,8 +51,12 @@ const MovieDetails = props => {
                         <div>Revenue: {revenue?`${revenue}`:'N/A'}</div>
                    </div>
                 </div>
-                <div className="movie-details__col">
+                <div className="movie-details__col right-col">
                     <div className="movie-details__overview">{overview}</div>
+                    <div className="rating-section">
+                        <div className="metrics-card average">Score: {vote_average}</div>
+                      <div className="metrics-card vote-count">Votes: {vote_count}</div>
+                   </div>
                 </div>
             </div>
           </div>

@@ -84,7 +84,7 @@ const Home = props => {
     if(ratingFilter > 0){
        filteredMovies = filterMoviesByRating();
     }
-  console.log("FILTERED", filteredMovies)
+
     return (
         <div>
             <Hero setSearchTerm={setSearchTerm}/>
