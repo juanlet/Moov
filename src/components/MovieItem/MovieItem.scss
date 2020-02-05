@@ -76,16 +76,31 @@
 .overlay {
 
 
-&__title {
-  font-size: 0.6rem;
-}
-    
-&__text {
-  font-size: 0.65rem;
+        &__title {
+        font-size: 0.6rem;
+        }
+            
+        &__text {
+        font-size: 0.65rem;
+
+        }
+
+    }
 
 }
 
-}
+@media (min-width: 300px) and (max-width: 350px) {
+
+
+        .overlay {
+
+            
+                &__text {
+                font-size: 0.55rem;
+                text-overflow: ellipsis;
+                }
+
+        }
 
 }
 
@@ -94,13 +109,13 @@
 .overlay {
 
 
-&__title {
-  font-size: 1.5rem;
-}
-    
-&__text {
-  font-size: 0.9rem;
-}
+        &__title {
+        font-size: 1.5rem;
+        }
+            
+        &__text {
+        font-size: 0.9rem;
+        }
 
-}
+    }
 }
