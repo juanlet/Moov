@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import './Hero.scss';
 
 function index(props) {
   return (
     <div className="hero">
-      <div className="hero__brand">Moov</div>
+      <Link to="" style={{textDecoration: 'none'}}><div className="hero__brand">Moov</div></Link>
       <div className="hero__title"> Find your new favorites</div>
       <p className="hero__subtitle">Broaden your taste</p>
       <div className="input-group search-container">

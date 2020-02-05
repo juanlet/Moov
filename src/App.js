@@ -1,42 +1,24 @@
-import React, { useState, useEffect, Fragment } from "react";
-import logo from "./logo.svg";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./App.scss";
-import Hero from "components/Hero";
-import MovieList from "components/MovieList";
+import Home from "pages/Home";
+import MovieDetails from "pages/MovieDetails";
 import Footer from "components/Footer";
 import Normalize from 'react-normalize';
 
+
 function App() {
-  const [movieList, setMovieList] = useState([]);
-
-  const fetchMovies = async () => {
-    try {
-      let movies = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&sort_by=popularity.desc`
-      );
-      movies = await movies.json();
-      console.log(movies);
-      setMovieList(movies.results);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchMovies();
-  }, []);
+ 
 
   return (
     <div className="App">
-      <Normalize />
-
-      <Hero />
-      {movieList ? (
-        <MovieList movies={movieList} />
-      ) : (
-        "There was an error fetching the movies"
-      )}
+      <Router>
+      <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/details' component={MovieDetails} />
+      </Switch>
       <Footer />
+      </Router>
     </div>
   );
 }
