@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import Hero from "components/Hero";
 import MovieList from "components/MovieList";
 import RatingFilter from 'components/RatingFilter';
+import useDebounce from 'utils/useDebounce';
 
 const Home = props => {
 
      const [movieList, setMovieList] = useState([]);
      const [ratingFilter, setRatingFilter] = useState(false);
      const [searchTerm, setSearchTerm] = useState('');
+     const [isSearching, setIsSearching] = useState(false);
+     const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
 
   const fetchRecommendedMovies = async () => {
     try {
@@ -23,9 +27,11 @@ const Home = props => {
   };
 
   const searchMovies = async (term) => {
+    console.log("term",term);
     try {
       let movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&query=${term}`)
       movies = await movies.json();
+      setIsSearching(false);
       setMovieList(movies.results);
       console.log(movies);
     } catch (err) {
@@ -60,13 +66,25 @@ const Home = props => {
     fetchRecommendedMovies();
   }, []);
 
-  useEffect(() => {
-    if(searchTerm === ''){
-      fetchRecommendedMovies();
-    }else{
-      console.log('looking for');
-    }
-  },[searchTerm])
+
+  useEffect(
+    () => {
+      // Make sure we have a value (user has entered something in input)
+      if (debouncedSearchTerm) {
+        // Set isSearching state
+        setIsSearching(true);
+        // Fire off our API call
+        searchMovies(debouncedSearchTerm);
+      } else {
+       fetchRecommendedMovies();
+      }
+    },
+    // This is the useEffect input array
+    // Our useEffect function will only execute if this value changes ...
+    // ... and thanks to our hook it will only change if the original ...
+    // value (searchTerm) hasn't changed for more than 500ms.
+    [debouncedSearchTerm]
+  );
 
 
   /* useEffect(()=>{

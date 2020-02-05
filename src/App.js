@@ -5,12 +5,14 @@ import Home from "pages/Home";
 import MovieDetails from "pages/MovieDetails";
 import Footer from "components/Footer";
 import Normalize from 'react-normalize';
-
+import ErrorBoundary from 'components/ErrorBoundary';
 
 function App() {
  
 
   return (
+    <ErrorBoundary>
+
     <div className="App">
       <Router>
       <Switch>
@@ -20,6 +22,8 @@ function App() {
       <Footer />
       </Router>
     </div>
+    </ErrorBoundary>
+
   );
 }
 
