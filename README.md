@@ -7,3 +7,7 @@ NODE_PATH=src/
 
 
 Get your Movie DB API KEY HERE: https://www.themoviedb.org/settings/api
+
+DEMO:
+
+https://fervent-colden-503e6f.netlify.com/
